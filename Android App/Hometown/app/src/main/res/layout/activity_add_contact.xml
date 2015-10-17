@@ -7,4 +7,70 @@
     android:paddingBottom="@dimen/activity_vertical_margin"
     tools:context="com.boilermakeproject.hometown.AddContact">
 
+
+    <ImageView
+        android:layout_width="150dp"
+        android:layout_height="150dp"
+        android:id="@+id/contact_image"
+        android:src="@drawable/ic_account_box_black_24dp"/>
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:inputType="textPersonName"
+        android:ems="10"
+        android:id="@+id/contact_name"
+        android:layout_alignTop="@+id/contact_image"
+        android:layout_toRightOf="@+id/contact_image"
+        android:layout_toEndOf="@+id/contact_image" />
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/hometown_add"
+        android:layout_below="@+id/contact_name"
+        android:layout_toRightOf="@+id/contact_image"
+        android:layout_alignRight="@+id/contact_name"
+        android:layout_alignEnd="@+id/contact_name" />
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:inputType="phone"
+        android:ems="10"
+        android:id="@+id/contact_phone"
+        android:layout_below="@+id/hometown_add"
+        android:layout_toRightOf="@+id/contact_image"
+        android:layout_toEndOf="@+id/contact_image" />
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:inputType="textMultiLine"
+        android:ems="10"
+        android:id="@+id/contact_note"
+        android:layout_below="@+id/contact_image"
+        android:layout_alignRight="@+id/contact_phone"
+        android:layout_alignEnd="@+id/contact_phone"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Save"
+        android:id="@+id/save_contact"
+        android:layout_below="@+id/contact_note"
+        android:layout_centerHorizontal="true" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Delete"
+        android:id="@+id/delete_contact"
+        android:layout_below="@+id/save_contact"
+        android:layout_centerHorizontal="true"
+        android:visibility="gone"/>
+
+
 </RelativeLayout>
