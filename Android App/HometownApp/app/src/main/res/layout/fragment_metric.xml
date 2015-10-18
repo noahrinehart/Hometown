@@ -1,0 +1,132 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.boilermakeproject.hometownapp.MetricFragment"
+    android:padding="30dp">
+
+    <!-- TODO: Update blank fragment layout -->
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Metrics"
+        android:textSize="40sp"
+        android:layout_marginTop="20dp"
+        android:id="@+id/metric_title"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:paddingBottom="20dp"
+        android:textStyle="bold"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Closest Contact"
+        android:id="@+id/closest_title"
+        android:layout_marginTop="40dp"
+        android:padding="10dp"
+        android:layout_below="@+id/metric_title"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:textStyle="bold"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="..."
+        android:id="@+id/close_contact"
+        android:layout_marginTop="5dp"
+        android:layout_alignTop="@+id/closest_title"
+        android:layout_toRightOf="@+id/closest_title" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Number of locals"
+        android:padding="10dp"
+        android:id="@+id/locals_title"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:textStyle="bold"
+        android:layout_below="@+id/closest_title" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="..."
+        android:id="@+id/locals_contact"
+        android:layout_alignBottom="@+id/locals_title"
+        android:layout_alignTop="@+id/locals_title"
+        android:layout_toRightOf="@+id/locals_title"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Percent local"
+        android:padding="10dp"
+        android:id="@+id/perc_title"
+        android:layout_below="@+id/locals_title"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:textStyle="bold"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="..."
+        android:layout_marginTop="5dp"
+        android:id="@+id/perc_contact"
+        android:layout_alignTop="@+id/perc_title"
+        android:layout_above="@+id/avg_title"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
+        android:layout_toRightOf="@+id/perc_title"
+        android:layout_toEndOf="@+id/perc_title" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Average distance away"
+        android:id="@+id/avg_title"
+        android:padding="10dp"
+        android:layout_below="@+id/perc_title"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:textStyle="bold"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="..."
+        android:layout_marginTop="5dp"
+        android:id="@+id/avg_contact"
+        android:layout_toRightOf="@+id/avg_title"
+        android:layout_below="@+id/perc_contact"
+        android:layout_alignRight="@+id/perc_contact"
+        android:layout_alignEnd="@+id/perc_contact" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Average distance between"
+        android:id="@+id/avg_dist_title"
+        android:padding="10dp"
+        android:textStyle="bold"
+        android:layout_below="@+id/avg_title"
+        android:layout_alignLeft="@+id/avg_title"
+        android:layout_alignStart="@+id/avg_title" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="..."
+        android:layout_marginTop="5dp"
+        android:id="@+id/avg_dist"
+        android:layout_alignTop="@+id/avg_dist_title"
+        android:layout_toRightOf="@+id/avg_dist_title"
+        android:layout_toEndOf="@+id/avg_dist_title" />
+
+
+</RelativeLayout>
