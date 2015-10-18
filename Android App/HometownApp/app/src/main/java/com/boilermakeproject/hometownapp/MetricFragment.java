@@ -139,43 +139,44 @@ public class MetricFragment extends Fragment implements LocationListener {
         if (contactArrayList != null)
             Log.d("num_contact", Integer.toString(contactArrayList.size()));
 
+
+
         Contact me = new Contact("Me", "Location", cur_lat, cur_lon);
         contactArray = new Contact[contactArrayList.size()];
         contactArray = contactArrayList.toArray(contactArray);
 
-        //closest, furthest, number of locals, percent within 50 miles,avg distance, avg distance between
-        closeContact = (TextView) view.findViewById(R.id.close_contact);
-
-        localsContact = (TextView) view.findViewById(R.id.locals_contact);
-        percContact = (TextView) view.findViewById(R.id.perc_contact);
-        avgContact = (TextView) view.findViewById(R.id.avg_contact);
-        avgDistContact = (TextView) view.findViewById(R.id.avg_dist);
+        if (contactArray.length != 0) {
 
 
+            //closest, furthest, number of locals, percent within 50 miles,avg distance, avg distance between
+            closeContact = (TextView) view.findViewById(R.id.close_contact);
+
+            localsContact = (TextView) view.findViewById(R.id.locals_contact);
+            percContact = (TextView) view.findViewById(R.id.perc_contact);
+            avgContact = (TextView) view.findViewById(R.id.avg_contact);
+            avgDistContact = (TextView) view.findViewById(R.id.avg_dist);
 
 
+            Contact closest_con = closest(me, contactArray);
 
+            int local = locals(me, contactArray);
+            double perc = percLocal(local, contactArray);
+            double avg = avgDistanceFromMe(me, contactArray);
+            double avgdist = avgDistanceBetween(contactArray);
+            Log.d("contact", closest_con.getName());
 
-        Contact closest_con= closest(me, contactArray);
+            DecimalFormat df = new DecimalFormat("#.##");
+            perc = Double.valueOf(df.format(perc));
+            avg = Double.valueOf(df.format(avg));
+            avgdist = Double.valueOf(df.format(avgdist));
 
-        int local = locals(me, contactArray);
-        double perc = percLocal(local, contactArray);
-        double avg = avgDistanceFromMe(me, contactArray);
-        double avgdist = avgDistanceBetween(contactArray);
-        Log.d("contact",  closest_con.getName());
+            closeContact.setText(closest_con.getName() + "-" + closest_con.getHometown());
+            localsContact.setText(Integer.toString(local) + " people within 50 miles");
+            percContact.setText(Double.toString(perc) + "%");
+            avgContact.setText(Double.toString(avg) + " miles");
+            avgDistContact.setText(Double.toString(avgdist) + " miles");
 
-        DecimalFormat df = new DecimalFormat("#.##");
-        perc = Double.valueOf(df.format(perc));
-        avg = Double.valueOf(df.format(avg));
-        avgdist = Double.valueOf(df.format(avgdist));
-
-        closeContact.setText(closest_con.getName() + "-" + closest_con.getHometown());
-        localsContact.setText(Integer.toString(local) + " people within 50 miles");
-        percContact.setText(Double.toString(perc) + "%");
-        avgContact.setText(Double.toString(avg)+" miles");
-        avgDistContact.setText(Double.toString(avgdist) + " miles");
-
-
+        }
         return view;
     }
     public double rad(double degrees) {

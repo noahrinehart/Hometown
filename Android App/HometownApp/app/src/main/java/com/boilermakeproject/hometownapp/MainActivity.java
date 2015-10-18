@@ -15,14 +15,31 @@ import android.widget.TableLayout;
 import com.boilermakeproject.hometownapp.PagerAdapter;
 import com.boilermakeproject.hometownapp.R;
 
+import java.sql.SQLException;
+
 public class MainActivity extends AppCompatActivity {
 
-
+    private SQLController dbcon;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
+        dbcon = new SQLController(this);
+        try{
+            dbcon.open();
+
+        }catch (SQLException e){
+            e.printStackTrace();
+        }
+        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(this);
+
+        if(!prefs.getBoolean("firstTime", false)) {
+            dbcon.insert("Noah Rinehart", "Purdue", "40.4240", "-86.9290");
+            SharedPreferences.Editor editor = prefs.edit();
+            editor.putBoolean("firstTime", true);
+            editor.apply();
+        }
 
 
         setContentView(R.layout.activity_main);
